@@ -1,0 +1,286 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户管理页面与侧边导航栏</title>
+  <style>
+    /* 侧边导航栏样式 */
+   .sidebar {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+   .sidebar a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+    }
+
+   .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    /* 用户管理页面表格样式 */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    button {
+      margin: 0px;
+    }
+
+    /* 让内容区域避开导航栏 */
+    body {
+      margin-left: 200px;
+    }
+
+    /* 表单样式 */
+    form {
+      background-color: #fff;
+      padding: 0px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      margin: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 侧边导航栏 -->
+  <div class="sidebar">
+    <a href="/userData">用户管理</a>
+    <a href="/activityData">活动管理</a>
+  </div>
+
+  <!-- 用户管理页面内容 -->
+  <h1>用户列表</h1>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>账号</th>
+        <th>昵称</th>
+        <th>密码</th>
+        <th>权限</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 用户数据将由JavaScript动态添加 -->
+      <!-- 使用 th:each 循环显示用户数据 -->
+      <tr th:each="user : ${users}">
+        <td th:text="${user.stuId}">Student ID</td>
+        <td th:text="${user.username}">Username</td>
+        <td th:text="${user.password}">Password</td>
+        <td th:text="${user.permission}">Permission</td>
+        <td>
+          <!-- 编辑和删除按钮 -->
+<!--          <button type="button" th:data-stuid="${user.stuId}" th:onclick="'editUser(this.getAttribute('data-stuid'))'" class="editBtn">编辑</button>-->
+<!--          <button type="button" th:data-stuid="${user.stuId}" th:onclick="'deleteUser(' + this.getAttribute('data-stuid') + ')'" class="deleteBtn">删除</button>-->
+          <!-- 编辑和删除按钮，移除 th:onclick -->
+          <button type="button" th:data-stuid="${user.stuId}" class="editBtn">编辑</button>
+<!--          <button type="button" th:data-stuid="${user.stuId}" class="deleteBtn">删除</button>-->
+        <form th:action="@{/userData/delete/{stuId}(stuId=${user.stuId})}" method="post" style="display: inline">
+          <button type="submit" th:data-stuid="${user.stuId}" onclick="return confirm('确定删除该用户吗？')" class="deleteBtn">删除</button>
+        </form>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <button id="addUserButton">添加用户</button>
+
+  <!-- 添加用户表单（初始隐藏） -->
+  <form th:action="@{/userData}" th:object="${user}" method="POST" id="addUserForm" style="display: none;">
+    <h2>添加用户</h2>
+    <label for="addNickname">昵称：</label>
+    <input type="text" th:field="*{username}" id="addNickname" required><br>
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">账号错误</div>
+
+    <label for="addAccount">账号：</label>
+    <input type="text" th:field="*{stuId}" id="addAccount" required><br>
+    <div th:if="${#fields.hasErrors('stuId')}" th:errors="*{stuId}">昵称错误</div>
+
+    <label for="addPassword">密码：</label>
+    <input type="password" th:field="*{password}" id="addPassword" required><br>
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">密码错误</div>
+
+    <label for="addAuthority">权限：</label>
+    <select id="addAuthority" th:field="*{permission}" required>
+      <option value="admin">管理员</option>
+      <option value="user">普通用户</option>
+    </select><br>
+    <input type="submit" value="提交">
+  </form>
+
+  <!-- 编辑用户表单（初始隐藏） -->
+  <form th:action="@{/userData/update}" th:object="${user}" method="POST" id="editUserForm" style="display: none;">
+    <h2>编辑用户</h2>
+    <label for="editNickname">昵称：</label>
+    <input type="text" th:field="*{username}" id="editNickname" required><br>
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">账号错误</div>
+
+    <label for="editAccount">账号：</label>
+    <input type="text" id="editAccount" th:field="*{stuId}" readonly required><br>
+
+    <label for="editPassword">密码：</label>
+    <input type="password" th:field="*{password}" id="editPassword" required><br>
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">密码错误</div>
+
+    <label for="editAuthority">权限：</label>
+    <select id="editAuthority" th:field="*{permission}" required>
+      <option value="admin">管理员</option>
+      <option value="user">普通用户</option>
+    </select><br>
+    <input type="hidden" id="editUserId">
+    <input type="submit" value="保存修改">
+<!--    <button type="submit">保存修改</button>-->
+  </form>
+
+  <script>
+
+    let users = [];
+
+    // 显示添加用户表单
+    document.getElementById('addUserButton').addEventListener('click', () => {
+      document.getElementById('addUserForm').style.display = "block";
+    });
+
+    // 绑定编辑按钮事件
+    document.querySelectorAll('.editBtn').forEach(button => {
+      button.addEventListener('click', function () {
+        const stuId = this.getAttribute('data-stuid');
+        editUser(stuId);
+      });
+    });
+    // 绑定删除按钮事件
+    // document.querySelectorAll('.deleteBtn').forEach(button => {
+    //   button.addEventListener('click', function () {
+    //     const stuId = this.getAttribute('data-stuid');
+    //     // deleteUser(stuId);
+    //   });
+    // });
+
+    // 编辑用户函数
+    function editUser(stuId) {
+      // 通过表格行查找用户数据
+      const row = document.querySelector(`button.editBtn[data-stuid="${stuId}"]`).closest('tr');
+      const stuIdCell = row.querySelector('td:nth-child(1)').textContent.trim();
+      const usernameCell = row.querySelector('td:nth-child(2)').textContent.trim();
+      const passwordCell = row.querySelector('td:nth-child(3)').textContent.trim();
+      const permissionCell = row.querySelector('td:nth-child(4)').textContent.trim();
+
+      // 填充编辑表单
+      document.getElementById('editNickname').value = usernameCell;
+      document.getElementById('editAccount').value = stuIdCell;
+      document.getElementById('editPassword').value = passwordCell;
+      document.getElementById('editAuthority').value = permissionCell;
+
+      // 显示编辑表单，隐藏添加表单
+      document.getElementById('editUserForm').style.display = "block";
+      document.getElementById('addUserForm').style.display = "none";
+    }
+
+    // 删除用户函数
+    // function deleteUser(stuId) {
+    //   if (confirm("确定要删除该用户吗？")) {
+    //     const csrfToken = document.querySelector('input[name="_csrf"]').value; // 获取 CSRF 令牌
+    //
+    //     // 发送删除请求到后端
+    //     fetch(`/userData/delete/${stuId}`, {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'X-CSRF-TOKEN': csrfToken // 添加 CSRF 令牌
+    //       }
+    //     })
+    //             .then(response => {
+    //               if (response.ok) {
+    //                 alert("用户删除成功");
+    //                 location.reload(); // 刷新页面以更新用户列表
+    //               } else {
+    //                 response.text().then(text => alert(text)); // 显示后端返回的错误信息
+    //               }
+    //             })
+    //             .catch(error => {
+    //               console.error('Error deleting user:', error);
+    //               alert("删除时发生错误");
+    //             });
+    //   }
+    // }
+
+
+
+    // 保存编辑后的用户
+    // document.getElementById('editUserForm').addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   const index = document.getElementById('editUserId').value;
+    //   users[index].nickname = document.getElementById('editNickname').value;
+    //   users[index].account = document.getElementById('editAccount').value;
+    //   users[index].password = document.getElementById('editPassword').value;
+    //   users[index].authority = document.getElementById('editAuthority').value;
+    //   renderUserTable();
+    //   document.getElementById('editUserForm').style.display = "none";
+    // });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<!--<html class="bit-html" lang="zh-CN">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 保证网站在各类设备中的显示都为正常 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 设置网址显示的标题 -->
+    <title>网络空间安全协会 | 首页</title>
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="首页 " />
+    <!-- 指定当前网页的显示地址 -->
+    <!-- <meta property="og:url" content="http://w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com" /> -->
+    <meta property="og:description" content="" />
+
+    <link rel="stylesheet" href="/css/index_1.css" type="text/css" media="all" />
+
+    <style type='text/css'>
+        .iphorm-elements .iphorm-element-wrap-text input,
+        .iphorm-elements .iphorm-element-wrap-captcha input,
+        .iphorm-elements .iphorm-element-wrap-password input,
+        .iphorm-elements .iphorm-element-wrap select,
+        .iphorm-elements .iphorm-element-wrap textarea {
+            WIDTH: 100% !important;
+        }
+
+    </style>
+    <style>
+        /* 欢迎弹出框样式 */
+        #welcomePopup {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        z-index: 1000;
+        opacity: 0.9;
+        display: none; /* 默认隐藏 */
+        transition: opacity 0.5s ease-in-out;
+        }
+        /* 添加动画效果 */
+        @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 0.9; }
+        }
+
+        @keyframes fadeOut {
+        from { opacity: 0.9; }
+        to { opacity: 0; }
+        }
+
+        #welcomePopup.show {
+        display: block;
+        animation: fadeIn 0.5s forwards;
+        }
+
+        #welcomePopup.hide {
+        animation: fadeOut 0.5s forwards;
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script type='text/javascript' src='/js/index.js'></script>
+    <!-- <script>
+        var geURL = 'http://w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com/ge/index.html?embed=1&ui=embed&spin=1&modified=unsavedChanges&proto=json&lang=zh';
+    </script> -->
+
+    <!-- css样式布局 -->
+
+    <!-- index1.css -->
+    <link href="/css/index1.css" rel="stylesheet">
+    <!-- index2.css -->
+    <link href="/css/index2.css" rel="stylesheet">
+    <!-- index3.css -->
+    <link href="/css/index3.css" rel="stylesheet">
+    <!-- inde4.css -->
+    <link href="/css/index4.css" rel="stylesheet">
+    <!-- index5.css -->
+    <link href="/css/index5.css" rel="stylesheet">
+    <!-- award.css -->
+    <link href="/css/award.css" rel="stylesheet">
+    <!-- member.css -->
+    <link href="/css/member.css" rel="stylesheet">
+    <!-- introduction.css -->
+    <link href="/css/introduction.css" rel="stylesheet">
+
+    <!-- js布局 -->
+    <script src="/js/blog.js"></script>
+
+    <!-- 有类型的css样式 -->
+    <style class='style_0'>
+        .bitRightSider .widget-title,
+        .bitLeftSider .widget-title {
+            padding: 0 0 0 10px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #474747;
+            margin: 0px;
+            font-family: 微软雅黑;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            text-decoration: none;
+            color: #ffffff;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            background-image: none;
+            -webkit-border-top-left-radius: 0;
+            -webkit-border-top-right-radius: 0;
+            -moz-border-radius-topleft: 0;
+            -moz-border-radius-topright: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        
+        .bitRightSider .bitWidgetFrame,
+        .bitLeftSider .bitWidgetFrame {
+            border-top: 0;
+            border-bottom: 1px solid #bababa;
+            border-left: 1px solid #bababa;
+            border-right: 1px solid #bababa;
+            padding: 4px 10px 4px 10px;
+            -webkit-border-bottom-left-radius: 0;
+            -webkit-border-bottom-right-radius: 0;
+            -moz-border-radius-bottomleft: 0;
+            -moz-border-radius-bottomright: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .bitRightSider .site_tooler,
+        .bitLeftSider .site_tooler {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        
+        .bitRightLeftSiderWidget.site_tooler .bitWidgetFrame,
+        .bitRightLeftSiderWidget.site_tooler .bitWidgetFrame {
+            background-color: transparent;
+            background-image: none;
+            background-repeat: repeat;
+            -webkit-border-bottom-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            -webkit-border-bottom-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+    </style>
+    <style class='style_0'>
+        .footer .widget-title {
+            padding: 0 0 0 10px;
+            height: 28px;
+            line-height: 28px;
+            background-color: #024886;
+            margin: 0px;
+            font-family: ;
+            font-size: px;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+            color: #fff;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            background-image: none;
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-top-right-radius: 4px;
+            -moz-border-radius-topleft: 4px;
+            -moz-border-radius-topright: 4px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        
+        .footer .widget-title {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        
+        .footer .bitWidgetFrame {
+            border-bottom: 0;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            padding: 4px 10px 4px 10px;
+        }
+        
+        .footer .site_tooler {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        
+        .footer .site_tooler .bitWidgetFrame {
+            background-color: transparent;
+            background-image: none;
+            -webkit-border-bottom-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            -webkit-border-bottom-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    </style>
+    <script type="text/javascript">
+        var dtGlobals = {};
+        dtGlobals.isMobile = (/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|windows phone)/.test(navigator.userAgent));
+        dtGlobals.isAndroid = (/(Android)/.test(navigator.userAgent));
+        dtGlobals.isiOS = (/(iPhone|iPod|iPad)/.test(navigator.userAgent));
+        dtGlobals.isiPhone = (/(iPhone|iPod)/.test(navigator.userAgent));
+        dtGlobals.isiPad = (/(iPad)/.test(navigator.userAgent));
+        dtGlobals.isBuggy = (navigator.userAgent.match(/AppleWebKit/) && typeof window.ontouchstart === 'undefined' && !navigator.userAgent.match(/Chrome/));
+        dtGlobals.isWindowsPhone = navigator.userAgent.match(/IEMobile/i);
+        dtGlobals.customColor = 'red';
+        if (dtGlobals.isMobile) {
+            document.documentElement.className += " mobile-true"
+        } else {
+            document.documentElement.className += " mobile-false"
+        }
+        dtGlobals.logoURL = false;
+        dtGlobals.logoH = false;
+        dtGlobals.logoW = false;
+        dtGlobals.visit_country_enable = '';
+        dtGlobals.logoEnabled = 1;
+        dtGlobals.curr_id = '8892';
+        dtGlobals.logoURL = '';
+        dtGlobals.logoW = '0';
+        dtGlobals.logoH = '0';
+        dtGlobals.qfyname = '起飞页';
+        dtGlobals.id = '655ededa54fcd';
+        dtGlobals.language = '';
+        smartMenu = 1;
+        document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + '; path=/;SameSite=Lax';
+        dtGlobals.gallery_bgcolor = 'rgba(51,51,51,1)';
+        dtGlobals.gallery_showthumbs = '0';
+        dtGlobals.gallery_style = '';
+        dtGlobals.gallery_autoplay = '0';
+        dtGlobals.gallery_playspeed = '3';
+        dtGlobals.gallery_imagesize = '100';
+        dtGlobals.gallery_imageheight = '100';
+        dtGlobals.gallery_stopbutton = '';
+        dtGlobals.gallery_thumbsposition = '';
+        dtGlobals.gallery_tcolor = '#fff';
+        dtGlobals.gallery_tsize = '16';
+        dtGlobals.gallery_dcolor = '#fff';
+        dtGlobals.gallery_dsize = '14';
+        dtGlobals.gallery_tfamily = '';
+        dtGlobals.gallery_dfamily = '';
+        dtGlobals.gallery_blankclose = '0';
+        dtGlobals.gallery_arrowstyle = '0';
+        dtGlobals.fm_showstyle = '';
+        dtGlobals.fm_showspeed = '';
+        dtGlobals.cdn_url = 'https://ccdn.goodq.top';
+        dtGlobals.googlekey = '';
+        dtGlobals.qfymodel = "1";
+        var socail_back_url = '';
+    </script>
+    <style type="text/css" media="print">
+        #qfadminbar {
+            display: none;
+        }
+    </style>
+
+
+
+    <script>
+        if (!document.querySelector("meta[name='viewport")) {
+            var vpMeta = document.createElement('meta');
+            vpMeta.name = "viewport";
+            vpMeta.content = "width=device-width, initial-scale=1.0";
+            document.getElementsByTagName('head')[0].appendChild(vpMeta);
+        }
+    </script>
+</head>
+
+
+<body id="lp-body" class="u-body u-overlap u-xl-mode home page page-id-8892 page-template-default logged-in admin-bar no-customize-support image-blur widefull_header2 widefull_footer2 widefull_topbar2 free_public mobile-autotable btn-flat content-fullwidth qfe-js-composer js-comp-ver-4.0.1 vc_responsive "
+    style="" data-pid="8892" data-pkey="fdb3bdca8af7c0356f5b7121ccb46485" data-bg="">
+
+
+
+    <!-- 网页头部 -->
+    <header class="u-align-center-sm u-align-center-xs u-clearfix u-header u-header" id="sec-9d14">
+        <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+            <!-- logo图标 -->
+            <div class="move2">
+                <a th:href="@{/main}" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+                    <img src="/images/GooseLogo.jpg" class="u-logo-image u-logo-image-1">
+                </a>
+            </div>
+
+            <!--  -->
+            <div class="u-hidden-xs u-social-icons u-spacing-10 u-social-icons-1">
+                <a class="u-social-url" title="facebook" target="_blank" href=""><span class="u-icon u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-53d9"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-53d9"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+  c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+      </a>
+                <a class="u-social-url" title="twitter" target="_blank" href=""><span class="u-icon u-social-icon u-social-twitter u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-daf4"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-daf4"><circle fill="currentColor" class="st0" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M83.8,47.3c0,0.6,0,1.2,0,1.7c0,17.7-13.5,38.2-38.2,38.2C38,87.2,31,85,25,81.2c1,0.1,2.1,0.2,3.2,0.2
+  c6.3,0,12.1-2.1,16.7-5.7c-5.9-0.1-10.8-4-12.5-9.3c0.8,0.2,1.7,0.2,2.5,0.2c1.2,0,2.4-0.2,3.5-0.5c-6.1-1.2-10.8-6.7-10.8-13.1
+  c0-0.1,0-0.1,0-0.2c1.8,1,3.9,1.6,6.1,1.7c-3.6-2.4-6-6.5-6-11.2c0-2.5,0.7-4.8,1.8-6.7c6.6,8.1,16.5,13.5,27.6,14
+  c-0.2-1-0.3-2-0.3-3.1c0-7.4,6-13.4,13.4-13.4c3.9,0,7.3,1.6,9.8,4.2c3.1-0.6,5.9-1.7,8.5-3.3c-1,3.1-3.1,5.8-5.9,7.4
+  c2.7-0.3,5.3-1,7.7-2.1C88.7,43,86.4,45.4,83.8,47.3z"></path></svg></span>
+      </a>
+                <a class="u-social-url" title="instagram" target="_blank" href=""><span class="u-icon u-social-icon u-social-instagram u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-08ad"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-08ad"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M55.9,38.2c-9.9,0-17.9,8-17.9,17.9C38,66,46,74,55.9,74c9.9,0,17.9-8,17.9-17.9C73.8,46.2,65.8,38.2,55.9,38.2
+  z M55.9,66.4c-5.7,0-10.3-4.6-10.3-10.3c-0.1-5.7,4.6-10.3,10.3-10.3c5.7,0,10.3,4.6,10.3,10.3C66.2,61.8,61.6,66.4,55.9,66.4z"></path><path fill="#FFFFFF" d="M74.3,33.5c-2.3,0-4.2,1.9-4.2,4.2s1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2S76.6,33.5,74.3,33.5z"></path><path fill="#FFFFFF" d="M73.1,21.3H38.6c-9.7,0-17.5,7.9-17.5,17.5v34.5c0,9.7,7.9,17.6,17.5,17.6h34.5c9.7,0,17.5-7.9,17.5-17.5V38.8
+  C90.6,29.1,82.7,21.3,73.1,21.3z M83,73.3c0,5.5-4.5,9.9-9.9,9.9H38.6c-5.5,0-9.9-4.5-9.9-9.9V38.8c0-5.5,4.5-9.9,9.9-9.9h34.5
+  c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
+      </a>
+            </div>
+            <nav class="u-align-center u-menu u-menu-one-level u-offcanvas u-menu-1">
+                <div class="menu-collapse" style="font-size: 1.125rem;">
+                    <a class="u-button-style u-custom-text-color u-nav-link u-text-white" href="#">
+                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" style=""><use xlink:href="#svg-8a8f"></use></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-8a8f" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;" xml:space="preserve" class="u-svg-content"><g><rect y="36" width="302" height="30"></rect><rect y="236" width="302" height="30"></rect><rect y="136" width="302" height="30"></rect>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                    </a>
+                </div>
+
+                <!-- 导航栏内容 -->
+                <div class="u-custom-menu u-nav-container">
+                    <ul id="menu-menu-1" class="u-nav u-spacing-57 u-unstyled u-nav-1">
+                        <!-- 首页 -->
+                        <li id="menu-item-9398" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home bit-menu-post-id-8687 menu-item-9398 u-nav-item"><a href="./index.html" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base active" style="padding: 10px;">首页</a></li>
+                        <!-- 活动 -->
+                        <li id="menu-item-9399" class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-9044 menu-item-9399 u-nav-item"><a th:href="@{/main/activity}" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" style="padding: 10px;">活动</a></li>
+                        <!-- 博客 -->
+                        <li id="menu-item-9400" class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-8964 menu-item-9400 u-nav-item"><a th:href="@{/main/member}" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" style="padding: 10px;">协会成员</a></li>
+                        <!-- 练习场 -->
+                        <!-- <li id="menu-item-9401" class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-9390 menu-item-9401 u-nav-item"><a href="./practice.html" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" style="padding: 10px;">练习场</a></li> -->
+                        <!-- 个人中心 -->
+                        <li id="menu-item-9402" class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-8919 menu-item-9402 u-nav-item"><a th:href="@{/main/individual}" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" style="padding: 10px;">个人中心</a></li>
+                        <!-- 联系 -->
+                        <li id="menu-item-9403" class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-9068 menu-item-9403 u-nav-item"><a th:href="@{/main/contact}" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" style="padding: 10px;">联系</a></li>
+                    </ul>
+                </div>
+
+                <div class="u-custom-menu u-nav-container-collapse">
+                    <div class="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                        <div class="u-inner-container-layout u-sidenav-overflow">
+                            <div class="u-menu-close"></div>
+                            <!-- 设置导航栏对应内容的url -->
+                            <ul id="menu-menu-2" class="u-align-center u-nav u-popupmenu-items u-spacing-15 u-text-active-palette-1-base u-text-hover-palette-1-base u-unstyled u-nav-2">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home bit-menu-post-id-8687 menu-item-9398 u-nav-item"><a href="./index.html" class="u-button-style u-nav-link active">首页</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-9044 menu-item-9399 u-nav-item"><a th:href="@{/main/acftivity}" class="u-button-style u-nav-link">活动</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-8964 menu-item-9400 u-nav-item"><a th:href="@{/main/member}" class="u-button-style u-nav-link">协会成员</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-8919 menu-item-9402 u-nav-item"><a th:href="@{/main/individual}" class="u-button-style u-nav-link">个人中心</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page bit-menu-post-id-9068 menu-item-9403 u-nav-item"><a th:href="@{/main/contact}" class="u-button-style u-nav-link">联系</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <div class="u-body u-overlap u-xl-mode home page page-id-8892 page-template-default logged-in admin-bar no-customize-support image-blur widefull_header2 widefull_footer2 widefull_topbar2 free_public mobile-autotable btn-flat content-fullwidth qfe-js-composer js-comp-ver-4.0.1 vc_responsive"
+        style="">
+        <!-- section1 -->
+        <!-- 社团首页页面 -->
+        <section class="u-clearfix u-uploaded-video u-video u-section-2" id="carousel_30b2" style="background-color: rgb(29, 19, 7);">
+            <!-- s1_div1 -->
+            <div class="u-background-video u-expanded" style="">
+                <div class="embed-responsive">
+                    <!-- 获取mp4视频背景内容 -->
+                    <!-- <video class="embed-responsive-item" data-autoplay="1" autoplay="autoplay" playsinline="" loop="" muted="1">
+                        <source src="http://w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com/qfy-content/uploads/2023/09/1750_MDAy1.mp4" type="video/mp4">
+                        <p>Your browser does not support HTML5 video.</p>
+                    </video> -->
+                    <!-- <img class="u-expanded-width u-hidden-xs u-image u-image-default u-image-1" src="./images/BackgroundGlitter.png" alt="" data-image-width="1920" data-image-height="696"> -->
+                </div>
+            </div>
+            <!-- s2_div2 -->
+            <div>
+                <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
+                    <h1 class="u-text u-text-default-xs u-text-palette-1-base u-text-1">
+                        <span class="u-text-body-alt-color">
+                            <span class="u-text-palette-1-base">浙大</span>城市学院
+                        </span>
+                        <br>网络空间安全协会
+                    </h1>
+                    <h1 class="u-text u-text-body-alt-color u-text-2"> 让我们一起在网络安全的海洋中遨游吧!</h1>
+                    <a th:href="@{/main/login}" class="u-active-white u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-btn-round u-button-style u-hover-white u-palette-1-base u-radius-6 u-text-active-palette-1-base u-text-body-color u-text-hover-palette-1-base u-btn-1">登录</a>
+                    <a th:href="@{/test}" class="u-active-palette-1-base u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-white u-btn u-btn-round u-button-style u-hover-palette-1-base u-radius-6 u-text-active-black u-text-body-alt-color u-text-hover-black u-btn-2">注册</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- section2 -->
+        <!-- 社团介绍页面 -->
+        <section class="u-clearfix u-grey-90 u-section-3" id="sec-13c0">
+            <img class="u-expanded-width u-hidden-xs u-image u-image-default u-image-1" src="/images/BackgroundGlitter.png" alt="" data-image-width="1920" data-image-height="696">
+            <!-- s2_div1 -->
+            <div class="u-clearfix u-gutter-20 u-layout-wrap u-layout-wrap-1">
+                <div class="u-layout">
+                    <div class="u-layout-row">
+                        <!-- 右图 -->
+                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+
+                            <div class="u-container-layout u-container-layout-1">
+
+                                <img class="u-expanded-width u-image u-image-default" src="/images/HZCU.png" alt="" data-image-width="500" data-image-height="729">
+                                <!-- <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="./images/TaiChi1.png" alt="" data-image-width="111" data-image-height="84"> -->
+                            </div>
+                        </div>
+                        <!-- 左图 -->
+                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                            <div class="u-container-layout u-container-layout-2">
+                                <img class="u-expanded-width u-image u-image-default " src="/images/GooseLogo.jpg" alt="" data-image-width="567" data-image-height="532">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- s2_div2 -->
+            <div class="u-rotation-parent u-rotation-parent-1">
+                <!-- <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-rotate-270 u-image-5" src="./images/TaiChi2.png" alt="" data-image-width="84" data-image-height="111"> -->
+            </div>
+            <!-- s2_div3 -->
+            <div class="move1">
+                <h3 class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-text u-text-palette-1-base u-text-1">ABOUT US</h3>
+                <h1 class="u-align-left u-text u-text-default-xs u-text-2">关于我们网络空间安全协会</h1>
+                <p class="u-text u-text-3">网络空间安全社团是在计算机与计算科学学院业务指导单位支持下的学生自主发起的非营利性社团组织，以维护网络空间安全为基点，开展网络空间安全竞赛活动、网络空间安全技能培训等活动，以促进学生对网络空间安全的学习和践行，涵养核心价值观，培养web安全、逆向工程、应用密码学、二进制安全的理想人才，引导学生学习维护网络空间安全的重要性，学习维护网络空间安全的重要技能，为国家网络安全贡献出自己的一份力，使其成为建设伟大祖国的栋梁之才。</p>
+                <!-- s2_div3_div -->
+                <div class="u-list u-list-1">
+                    <!-- s3_d3_div_div -->
+                    <div class="u-repeater u-repeater-1">
+                        <!-- s3_d3_div_d1 -->
+                        <!-- data-href可以使div中所有内容点击后都可以定位到首页的奖项页面 -->
+                        <div class="u-container-style u-custom-color-1 u-list-item u-repeater-item u-list-item-1" data-href="#sec-a9d3" title="奖项">
+                            <div class="u-container-layout u-similar-container u-valign-middle-xs u-container-layout-3">
+                                <h3 class="u-hover-feature u-text u-text-default u-text-4">01</h3>
+                                <h3 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-hover-feature u-text u-text-default u-text-palette-1-base u-text-5">奖项</h3><span class="u-file-icon u-hover-feature u-icon u-text-palette-1-base u-icon-1"><img src="/images/arrow.png" alt=""></span>
+                            </div>
+                        </div>
+                        <!-- s3_d3_div_d2 -->
+                        <!-- data-href可以使div中所有内容点击后都可以定位到首页的社团成员页面 -->
+                        <div class="u-container-style u-custom-color-1 u-list-item u-repeater-item u-list-item-2"  data-href="./member.html" title="协会成员">
+                            <div class="u-container-layout u-similar-container u-valign-middle-xs u-container-layout-4">
+                                <h3 class="u-hover-feature u-text u-text-default u-text-6">02</h3>
+                                <h3 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-hover-feature u-text u-text-default u-text-palette-1-base u-text-7"> 协会成员<br>
+                                </h3><span class="u-file-icon u-hover-feature u-icon u-text-palette-1-base u-icon-2"><img src="./images/arrow.png" alt=""></span>
+                            </div>
+                        </div>
+                        <!-- s3_d3_div_d3 -->
+                        <!-- data-href可以使div中所有内容点击后都可以定位到首页的活动页面 -->
+                        <div class="u-container-style u-custom-color-1 u-list-item u-repeater-item u-list-item-3" data-href="./activity.php" title="活动">
+                            <div class="u-container-layout u-similar-container u-valign-middle-xs u-container-layout-5">
+                                <h3 class="u-hover-feature u-text u-text-default u-text-8">03</h3>
+                                <h3 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-hover-feature u-text u-text-default u-text-palette-1-base u-text-9">活动</h3><span class="u-file-icon u-hover-feature u-icon u-text-palette-1-base u-icon-3"><img src="/images/arrow.png" alt=""></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section3 -->
+        <!-- 方向介绍 -->
+        <section class="u-clearfix u-grey-90 u-section-4" id="sec-dc45">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <!-- 标题栏介绍 -->
+                <h3 class="u-text u-text-default u-text-palette-1-base u-text-1"> Introduction</h3>
+                <h1 class="u-text u-text-default u-text-2">入门介绍</h1>
+                <div id="carousel-1c88" data-interval="5000" data-u-ride="carousel" class="u-carousel u-expanded-width-xs u-slider u-slider-1">
+                    <ol class="u-absolute-hcenter u-carousel-indicators u-hidden u-carousel-indicators-1">
+                        <li data-u-target="#carousel-1c88" class="u-active u-grey-30" data-u-slide-to="0"></li>
+                        <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="1"></li>
+                        <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="2"></li>
+                    </ol>
+                    <!-- 方向介绍内容 -->
+                    <div class="u-carousel-inner" role="listbox">
+                        <!-- 第一个方向介绍 -->
+                        <div class="u-active u-align-left u-carousel-item u-container-style u-slide">
+                            <div class="u-container-layout u-container-layout-1">
+                                <div class="u-rotation-parent u-rotation-parent-1">
+                                    <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-rotate-270 u-image-1" src="/images/TaiChi2.png" alt="" data-image-width="84" data-image-height="111">
+                                </div>
+                                <img alt="" class="u-image u-image-default u-image-2" data-image-width="557" data-image-height="534" src="/images/web.png">
+                                <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="/images/TaiChi1.png" alt="" data-image-width="111" data-image-height="84">
+                                <h3 class="u-align-center-xs u-text u-text-3"> “Web方向所需要学习的内容偏多，涉及到各类编程语言与开发框架，漏洞的类型也偏多，但是不用担心，web方面的安全研究并不会过于深入开发的底层原理，也并不会涉及太多开发的高级应用。web安全比较有趣味性，基本思想是绕过检测并执行命令，比较符合传统黑客的工作。”</h3>
+                                <h2 class="u-align-center-xs u-text u-text-default u-text-palette-1-base u-text-4">Web</h2>
+                                <h4 class="u-align-center-xs u-text introduction_data u-text-5">
+                                    <a href="/introduction/web入门.pdf" target="_blank">web入门资料(点击获取)</a>
+                                </h4>
+                            </div>
+                        </div>
+                        <!-- 第二个方向介绍 -->
+                        <div class="u-align-left u-carousel-item u-container-style u-slide">
+                            <div class="u-container-layout u-container-layout-2">
+                                <div class="u-rotation-parent u-rotation-parent-2">
+                                    <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-rotate-270 u-image-4" src="/images/TaiChi2.png" alt="" data-image-width="84" data-image-height="111">
+                                </div>
+                                <img alt="" class="u-image u-image-default u-image-5" data-image-width="1200" data-image-height="1568" src="/images/Misc.png">
+                                <img class="u-hidden-xs u-image u-image-contain u-image-defaultc u-preserve-proportions u-image-6" src="/images/TaiChi1.png" alt="" data-image-width="111" data-image-height="84">
+                                <h3 class="u-align-center-xs u-text u-text-6"> “Misc（杂项）是指在计算机中不属于特定领域或主题的内容。它包括了各种各样的工具、库、模块、函数、小贴士等。Misc可以帮助开发者提高生产力，简化编码过程，减少出错率。常见的Misc内容包括常用的Python库、命令行工具、调试技巧、代码风格规范等。学习Misc内容可以让你更加高效地编写代码，并且拓宽你的技术视野。”</h3>
+                                <h3 class="u-align-center-xs u-text u-text-default u-text-palette-1-base u-text-7">Misc</h3>
+                                <h4 class="u-align-center-xs u-text introduction_data u-text-5">
+                                    <a href="/introduction/misc入门指北.pdf" target="_blank">misc入门资料(点击获取)</a></h4>
+                            </div>
+                        </div>
+                        <!-- 第三个方向介绍 -->
+                        <div class="u-align-left u-carousel-item u-container-style u-slide">
+                            <div class="u-container-layout u-container-layout-2">
+                                <div class="u-rotation-parent u-rotation-parent-2">
+                                    <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-rotate-270 u-image-4" src="/images/TaiChi2.png" alt="" data-image-width="84" data-image-height="111">
+                                </div>
+                                <img alt="" class="u-image u-image-default u-image-5" data-image-width="1200" data-image-height="1568" src="/images/revserse.png">
+                                <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-image-6" src="/images/TaiChi1.png" alt="" data-image-width="111" data-image-height="84">
+                                <h3 class="u-align-center-xs u-text u-text-6"> “Reverse（逆向工程）要求参与者破解和分析已编译的程序代码，以获取隐藏的答案或漏洞。通过理解和逆向工程二进制文件，包括可执行文件、固件或反汇编代码，选手需要解决密码学、加密算法、漏洞利用等问题。CTF Reverse活动旨在锻炼参与者的逆向分析和解决问题的能力，提高对计算机系统运行机制的理解。”</h3>
+                                <h3 class="u-align-center-xs u-text u-text-default u-text-palette-1-base u-text-7">Reverse</h3>
+                                <h4 class="u-align-center-xs u-text introduction_data u-text-5">
+                                    <a href="/introduction/revserse.pdf" target="_blank">reverse入门资料(点击获取)</a></h4>
+                            </div>
+                        </div>
+                        <!-- 第四个方向 -->
+                        <div class="u-align-left u-carousel-item u-container-style u-slide">
+                            <div class="u-container-layout u-container-layout-2">
+                                <div class="u-rotation-parent u-rotation-parent-2">
+                                    <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-rotate-270 u-image-4" src="/images/TaiChi2.png" alt="" data-image-width="84" data-image-height="111">
+                                </div>
+                                <img alt="" class="u-image u-image-default u-image-5" data-image-width="1200" data-image-height="1568" src="/images/Crypto.png">
+                                <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-image-6" src="/images/TaiChi1.png" alt="" data-image-width="111" data-image-height="84">
+                                <h3 class="u-align-center-xs u-text u-text-6"> “Crypto（密码学）要求参与者应用密码学知识解决各种加密挑战。参赛者需要破解密码、分析加密算法、解密隐藏信息，以获取比赛中的“Flag”（标记）。这种竞赛旨在培养密码学技能，包括对对称加密、非对称加密、数字签名和哈希函数等的理解和应用。CTF Crypto挑战能够提升参与者的密码学知识和实践能力，适合想要深入了解加密技术的人群。”</h3>
+                                <h3 class="u-align-center-xs u-text u-text-default u-text-palette-1-base u-text-7">Crypto</h3>
+                                <h4 class="u-align-center-xs u-text introduction_data u-text-5">
+                                    <a href="/introduction/crypto方向入门指北.pdf" target="_blank">crypto入门资料(点击获取)</a></h4>
+                            </div>
+                        </div>
+                        <!-- 第五个方向 -->
+                        <div class="u-align-left u-carousel-item u-container-style u-slide">
+                            <div class="u-container-layout u-container-layout-2">
+                                <div class="u-rotation-parent u-rotation-parent-2">
+                                    <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-rotate-270 u-image-4" src="/images/TaiChi2.png" alt="" data-image-width="84" data-image-height="111">
+                                </div>
+                                <img alt="" class="u-image u-image-default u-image-5" data-image-width="1200" data-image-height="1568" src="/images/PWN.png">
+                                <img class="u-hidden-xs u-image u-image-contain u-image-default u-preserve-proportions u-image-6" src="/images/TaiChi1.png" alt="" data-image-width="111" data-image-height="84">
+                                <h3 class="u-align-center-xs u-text u-text-6"> “Pwn（漏洞利用）要求参与者发现和利用给定程序的漏洞，以获取比赛中的“Flag”（标记）。参赛者需要在理解二进制代码基础上，针对内存溢出、格式化字符串、堆栈溢出等漏洞类型实现攻击或提供有效的解决方案。这种竞赛旨在培养参赛者的漏洞分析和解决问题的能力，提高对二进制程序安全的认识和掌握。CTF Pwn挑战能够提升参与者的技术水平和实践能力，适合想要深入了解二进制程序漏洞的人群。”</h3>
+                                <h3 class="u-align-center-xs u-text u-text-default u-text-palette-1-base u-text-7">Pwn</h3>
+                                <h4 class="u-align-center-xs u-text introduction_data u-text-5">
+                                    <a href="/introduction/pwn入门.pdf" target="_blank">pwn入门资料(点击获取)</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <a class="u-absolute-vcenter-lg u-absolute-vcenter-md u-absolute-vcenter-sm u-absolute-vcenter-xl u-carousel-control u-carousel-control-prev u-icon-circle u-palette-1-base u-spacing-9 u-text-body-color u-carousel-control-1" href="#carousel-1c88" role="button"
+                        data-u-slide="prev">
+                        <span aria-hidden="true">
+                            <svg viewBox="0 0 477.175 477.175"><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
+                                c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>
+                        </span>
+                        <span class="sr-only">+Previous</span>
+                    </a>
+                    <!--  -->
+                    <a class="u-absolute-vcenter-lg u-absolute-vcenter-md u-absolute-vcenter-sm u-absolute-vcenter-xl u-carousel-control u-carousel-control-next u-icon-circle u-palette-1-base u-spacing-9 u-text-body-color u-carousel-control-2" href="#carousel-1c88" role="button"
+                        data-u-slide="next">
+                        <span aria-hidden="true">
+                            <svg viewBox="0 0 477.175 477.175">
+                                <path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
+                                    c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z">
+                                </path>
+                            </svg>
+                         </span>
+                        <span class="sr-only">+Next</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- section4 -->
+        <!-- 奖项显示页面 -->
+        <section class="u-align-center u-clearfix u-custom-color-1 u-section-5 award_center" style="background-color: rgb(29, 19, 7);" id="sec-a9d3">
+            <div class="u-clearfix u-sheet u-sheet-1 award_center">
+                <div>
+                    <!-- 标题栏 -->
+                    <h3 class="u-align-center-xs u-text u-text-default u-text-palette-1-base u-text-1">AWARD</h3>
+                    <h1 class="u-align-center-xs u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-text u-text-default u-text-2">我们的奖项</h1>
+                    <!-- s4_div1 -->
+                    <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                        <div class="u-gutter-0 u-layout award_parent">
+                            <!-- 第一项比赛 -->
+                            <p>
+                                <div class="u-container-layout u-container-layout-1">
+                                    <h2 class="u-align-center-xs u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-text u-text-default u-text-palette-1-base u-text-3">第六届浙江省大学生网络与信息安全竞赛技能挑战赛</h2>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">一等奖--Goose<br>
+                                    </p>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">一等奖--Go0se<br>
+                                    </p>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">三等奖--G0ose<br>
+                                    </p>
+                                    <div class="u-list u-list-1">
+                                        <div class="u-repeater u-repeater-1">
+                                            <div class="u-container-style u-list-item u-repeater-item">
+                                                <div class="u-container-layout u-similar-container u-container-layout-2">
+                                                    <p class="u-text u-text-5"><span class="u-file-icon u-icon u-text-palette-1-base u-icon-1"><img src="/images/date.png" alt=""></span> 2023年11月11日
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                            <!-- 第二项比赛 -->
+                            <!-- <p>
+                                <div class="u-container-layout u-container-layout-1">
+                                    <h2 class="u-align-center-xs u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-text u-text-default u-text-palette-1-base u-text-3">第六届浙江省大学生网络与信息安全竞赛技能挑战赛</h2>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">一等奖--Goose<br>
+                                    </p>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">一等奖--G0ose<br>
+                                    </p>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">三等奖--G0ose<br>
+                                    </p>
+                                    <div class="u-list u-list-1">
+                                        <div class="u-repeater u-repeater-1">
+                                            <div class="u-container-style u-list-item u-repeater-item">
+                                                <div class="u-container-layout u-similar-container u-container-layout-2">
+                                                    <p class="u-text u-text-5"><span class="u-file-icon u-icon u-text-palette-1-base u-icon-1"><img src="./images/date.png" alt=""></span> 2023年12月12日
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p> -->
+                            <!-- 第三项比赛 -->
+                            <!-- <p>
+                                <div class="u-container-layout u-container-layout-1">
+                                    <h2 class="u-align-center-xs u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-text u-text-default u-text-palette-1-base u-text-3">第六届浙江省大学生网络与信息安全竞赛技能挑战赛</h2>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">一等奖--Goose<br>
+                                    </p>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">一等奖--G0ose<br>
+                                    </p>
+                                    <p class="u-align-left u-text u-text-custom-color-2 u-text-4">三等奖--Go0se<br>
+                                    </p>
+                                    <div class="u-list u-list-1">
+                                        <div class="u-repeater u-repeater-1">
+                                            <div class="u-container-style u-list-item u-repeater-item">
+                                                <div class="u-container-layout u-similar-container u-container-layout-2">
+                                                    <p class="u-text u-text-5"><span class="u-file-icon u-icon u-text-palette-1-base u-icon-1"><img src="./images/date.png" alt=""></span> 2023年12月12日
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 页脚 -->
+        <footer class="u-align-center u-clearfix u-footer u-grey-90 u-footer" id="sec-f99e"><img class="u-align-center u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="/images/GooseLogo.jpg" alt="" data-image-width="44" data-image-height="44">
+            <img class="u-expanded-width u-image u-image-default u-image-2" src="/images/BackgroundGlit2.png" alt="" data-image-width="1920" data-image-height="328">
+            <h1 class="u-align-center u-text u-text-default u-text-1">让我们一起战斗吧</h1>
+            <p class="u-align-center u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-grey-30 u-text-2"> 释放你内心的激情，网络安全技能学习变得容易，探索网络攻防之道，提升自己的安全能力。</p><a href="./index.html" class="u-active-white u-align-center u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-btn-round u-button-style u-hover-white u-palette-1-base u-radius-6 u-text-active-palette-1-base u-text-body-color u-text-hover-palette-1-base u-btn-1">加入我们吧 !</a>
+            <div class="u-clearfix u-layout-custom-xs u-layout-wrap u-layout-wrap-1">
+                <div class="u-gutter-0 u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-align-left u-container-style u-layout-cell u-shape-rectangle u-size-60 u-layout-cell-1">
+                            <div class="u-border-1 u-border-no-bottom u-border-no-left u-border-no-right u-border-palette-1-dark-2 u-container-layout u-container-layout-1">
+                                <a th:href="@{/main/contact}" class="u-align-right u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-2">联系</a>
+                                <a th:href="@{/main/individual}" class="u-align-right u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-3">我的</a>
+                                
+                                <a th:href="@{/main/member}" class="u-align-right u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-5">成员</a>
+                                <a th:href="@{/main/activity}" class="u-align-right u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-6">活动</a>
+                                <a th:href="@{/main}" class="u-align-right u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-7">首页</a>
+                                <h4 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-3"> &nbsp;&nbsp;HZCU&nbsp;网络空间安全协会</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="landpage-container">
+            <div class="u-body u-overlap u-xl-mode home page page-id-8892 page-template-default logged-in admin-bar no-customize-support image-blur widefull_header2 widefull_footer2 widefull_topbar2 free_public mobile-autotable btn-flat content-fullwidth qfe-js-composer js-comp-ver-4.0.1 vc_responsive"
+                style=""></div>
+        </div>
+        <script type='text/javascript'>
+            /* <![CDATA[ */
+            /* dt-plugins */
+            var dtLocal = {
+                "passText": "To view this protected post, enter the password below:",
+                "moreButtonAllLoadedText": "Everything is loaded",
+                "postID": "8892",
+                "ajaxurl": "http:\/\/w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com\/http:\/\/w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com\/admin\/admin-ajax.php",
+                "contactNonce": "e95e213447",
+                "ajaxNonce": "3317ffd846",
+                "pageData": {
+                    "type": "page",
+                    "template": null,
+                    "layout": null
+                },
+                "themeSettings": {
+                    "smoothScroll": "on"
+                }
+            };
+            /* thickbox */
+            var thickboxL10n = {
+                "next": "\u4e0b\u4e00\u5f20 >",
+                "prev": "< \u4e0a\u4e00\u5f20",
+                "image": "\u56fe\u7247",
+                "of": "\/",
+                "close": "\u5173\u95ed",
+                "noiframes": "This feature requires inline frames. You have iframes disabled or your browser does not support them.",
+                "loadingAnimation": "\/\/f.goodq.top\/FeiEditor\/bitSite\/images\/preloader.gif"
+            };
+
+            /* ]]> */
+        </script>
+        <!-- <script type="text/javascript" src="http://w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com/qfy-content/cache/scripts/63a32237da8f1c3e42cd2ec07769bedd.js"></script> -->
+        <script type="text/javascript" src="/js/index1.js"></script>
+        <!-- <link rel="stylesheet" href="http://w-57018-13995-62907.13919614996.sites.cnfree01.qifeiye.com/qfy-content/cache/scripts/f09269df8e1eb5707f736593a40ff976.css" type="text/css" media="all" /> -->
+        <link rel="stylesheet" href="/css/index6.css" type="text/css" media="all" />
+</body>
+
+</html>

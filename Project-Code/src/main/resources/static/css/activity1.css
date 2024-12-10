@@ -1,0 +1,15 @@
+#sec-form form {
+    text-align: center;
+}
+
+#sec-form form div {
+    display: inline-block;
+}
+
+#sec-form input[type="submit"] {
+    border: 2px solid #f67a45;
+    background-color: #f67a45;
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}

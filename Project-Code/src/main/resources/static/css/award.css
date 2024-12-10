@@ -1,0 +1,19 @@
+/* 设置竖向滚动条 */
+
+.award_parent {
+    width: 600px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.award_move {
+    margin-left: 1000px;
+}
+
+.award_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}

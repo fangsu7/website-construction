@@ -1,0 +1,23 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/results.css" />
+</head>
+<body>
+<div th:each="user: ${user}">
+<!--    恭喜您,<span th:text="${user.name}">名字</span>(先生/女士),数据提交成功!-->
+    <div>您的学号是:
+        <span th:text="${user.stuId}"></span></div>
+    <div> 您的邮箱是:
+        <span th:text="${user.email}"></span>
+    </div>
+    <div>您的用户名是:
+        <span th:text="${user.username}"></span>
+    </div>
+    <div>您的密码是：
+        <span th:text="${user.password}"></span>
+    </div>
+</div>
+
+</body>
+</html>

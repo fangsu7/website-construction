@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/css/login_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body class="body">
+<div class="login-page">
+  <div class="form">
+    <!-- 登录表单 -->
+    <form th:action="@{/main/login}" th:object="${user}" method="POST">
+      <lottie-player src="https://assets4.lottiefiles.com/datafiles/XRVoUu3IX4sGWtiC3MPpFnJvZNq7lVWDCa8LSqgS/profile.json" background="transparent" speed="1" style="justify-content: center;" loop autoplay></lottie-player>
+
+      <input th:field="*{stuId}" type="text" placeholder="&#xf007;  studentID" required />
+      <input th:field="*{password}" type="password" id="password" placeholder="&#xf023;  password" required />
+
+      <i class="fas fa-eye" onclick="show()"></i>
+      <br><br>
+
+      <!-- 登录按钮 -->
+      <button type="submit">LOGIN</button>
+      <p class="message" th:text="${message}"></p> <!-- 显示错误信息 -->
+    </form>
+
+    <!-- 注册按钮 -->
+    <form class="login-form">
+      <button type="button" onclick="window.location.href='signup.html'">SIGN UP</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function show(){
+    var password = document.getElementById("password");
+    var icon = document.querySelector(".fas");
+
+    // 判断密码框类型，切换显示密码
+    if(password.type === "password"){
+      password.type = "text";
+    } else {
+      password.type = "password";
+    }
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+/* 方向的资料 */
+
+.introduction_data {
+    color: #998982;
+    /* 初始文本颜色 */
+    cursor: default;
+    /* 初始鼠标样式 */
+}
+
+.introduction_data:hover {
+    color: orange;
+    /* 鼠标触碰时的文本颜色 */
+    cursor: pointer;
+    /* 鼠标触碰时的鼠标样式 */
+}

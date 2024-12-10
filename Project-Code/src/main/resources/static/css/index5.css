@@ -1,0 +1,37 @@
+.u-layout-row_1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.u-layout-row_1>.u-container-layout-1,
+.u-layout-row_1>.u-container-layout-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.move1 {
+    position: relative;
+    top: -200px;
+}
+
+.move2 {
+    margin-left: 10px;
+    top: 20px;
+}
+
+.move_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    /* 设置容器的宽度为整个视口宽度 */
+    height: 100vh;
+    /* 设置容器的高度为整个视口高度 */
+}
+
+.parent1 {
+    display: flex;
+    justify-content: center;
+}
